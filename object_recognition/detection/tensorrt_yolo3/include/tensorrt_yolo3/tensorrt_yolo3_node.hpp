@@ -56,12 +56,12 @@ private:
 
   std::unique_ptr<Tn::trtNet> net_ptr_;
 
-  TENSORRT_YOLO3_NODE_LOCAL void imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr & in_image);
-  TENSORRT_YOLO3_NODE_LOCAL std::vector<float> prepareImage(cv::Mat & in_img);
-  TENSORRT_YOLO3_NODE_LOCAL std::vector<Tn::Bbox> postProcessImg(
+  void imageCallback(const sensor_msgs::msg::Image::ConstSharedPtr & in_image);
+  std::vector<float> prepareImage(cv::Mat & in_img);
+  std::vector<Tn::Bbox> postProcessImg(
     std::vector<Yolo::Detection> & detections, const int classes, cv::Mat & img,
     autoware_perception_msgs::msg::DynamicObjectWithFeatureArray & out_objects);
-  TENSORRT_YOLO3_NODE_LOCAL void doNms(std::vector<Yolo::Detection> & detections, int classes, float nmsThresh);
+  void doNms(std::vector<Yolo::Detection> & detections, int classes, float nmsThresh);
 };
 }  // namespace tensorrt_yolo3
 

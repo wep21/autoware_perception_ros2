@@ -121,9 +121,7 @@ if(TRT_AVAIL AND CUDA_AVAIL AND CUDNN_AVAIL)
   )
 
   ament_auto_add_library(tensorrt_yolo3_node SHARED
-    include/tensorrt_yolo3/tensorrt_yolo3_node.hpp
     src/tensorrt_yolo3_node.cpp
-    include/tensorrt_yolo3/visibility_control.hpp
   )
 
   target_link_libraries(tensorrt_yolo3_node
@@ -156,4 +154,9 @@ if(TRT_AVAIL AND CUDA_AVAIL AND CUDNN_AVAIL)
 
 else()
   message("TensorrtYolo3Node won't be built, CUDA and/or TensorRT were not found.")
+  ament_auto_package(
+    INSTALL_TO_SHARE
+    launch
+    data
+  )
 endif()
