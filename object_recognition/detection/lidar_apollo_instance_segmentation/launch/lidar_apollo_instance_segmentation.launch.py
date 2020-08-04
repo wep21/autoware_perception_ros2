@@ -112,6 +112,7 @@ def generate_launch_description():
         package='lidar_apollo_instance_segmentation',
         node_executable='lidar_apollo_instance_segmentation_node_exe',
         node_namespace='',
+        node_name='lidar_apollo_instance_segmentation_node',
         output='screen',
         parameters=[[lidar_apollo_instance_segmentation_dir, '/param/model_', LaunchConfiguration('model'), '.yaml'],
                     {'prototxt_file': LaunchConfiguration('prototxt_file'),
